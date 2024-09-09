@@ -1,0 +1,59 @@
+header{
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100px;
+    background-color: var(--green);
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    color: white;
+}
+
+.innerHeader{
+    display: grid;
+    width: 90%;
+    align-items: center;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 50px;
+}
+
+.innerHeader :nth-child(1){
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.innerHeader input{
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.236);
+    padding: 10px;
+}
+
+.innerHeader > img{
+    cursor: pointer;
+}
+
+.innerHeader > div{
+    display: flex;
+    gap: 50px;
+    font-size: 18px;
+    height: auto;
+    align-items: center;
+    justify-content: right;
+}
+
+.innerHeader > div div{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btnLogin{
+    background-color: white;
+    color: var(--green);
+    padding: 5px 30px;
+    border-radius: 8px;
+}

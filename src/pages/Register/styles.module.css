@@ -1,0 +1,49 @@
+#area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#formArea{
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    width: 800px;
+    min-height: 450px;
+    margin: 5rem 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+#innerFormArea{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 5% 0;
+}
+
+.title p:nth-child(1){
+    font-size: 32px;
+    color: var(--green);
+    font-weight: bold;
+}
+
+.input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media(max-width:1024px){
+    #infosUser{
+        justify-content: center;
+        gap: 10px;
+    }
+}
