@@ -1,8 +1,56 @@
+import styles from "./styles.module.css";
+import banner from "../../assets/images/banner.png";
+import { CarouselProducts } from "../../components";
 
 export const Shop = () => {
+
+  const items = [
+    {
+      name: "Frutas",
+      img: require("../../assets/images/Banana_pratapng 1.png"),
+    },
+    {
+      name: "Verduras",
+      img: require("../../assets/images/Banana_pratapng 1.png"),
+    },
+    {
+      name: "Temperos",
+      img: require("../../assets/images/Banana_pratapng 1.png"),
+    },
+    {
+      name: "Utensilios",
+      img: require("../../assets/images/Banana_pratapng 1.png"),
+    },
+    {
+      name: "Utensilios",
+      img: require("../../assets/images/Banana_pratapng 1.png"),
+    },
+    {
+      name: "Utensilios",
+      img: require("../../assets/images/Banana_pratapng 1.png"),
+    },
+  ];
+
   return (
-    <div>
-        
-    </div>
-  )
-}
+    <>
+      <section id={styles.promoBanner}>
+        <img src={banner} alt="banner de promocao" />
+      </section>
+      <section id={styles.sectionItems}>
+        <div id={styles.carrousselProducts}>
+          {items.map((data, index) => (
+            <div className={styles.itemType} key={index}>
+              <div>
+                <img src={data.img} width={50} height={50} alt="fruta" />
+              </div>
+              <p className="green">{data.name}</p>
+            </div>
+          ))}
+        </div>
+        <CarouselProducts title="Mais vendidos"/>
+        <CarouselProducts title="Promos legais"/>
+        <CarouselProducts title="Mais vendidos"/>
+      </section>
+    </>
+  );
+};

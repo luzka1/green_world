@@ -46,6 +46,18 @@ export const GlobalStyles = createGlobalStyle<{}>`
     font-size: 18px;
     color:white;
   }
+  .green{
+    color: var(--green);  
+  }
+  .blue{
+    color: var(--blue);  
+  }
+    .bold{
+    font-weight: bold;
+    }
+    .gray{
+    color:var(--gray01);
+    }
   .input-enter-data{
     height: 50px;
     width: 100%;

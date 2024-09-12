@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import { Header, Footer, Button } from "../../components";
+import { Button } from "../../components";
 import emailIcon from "../../assets/images/ic_baseline-email (1).svg";
 import passwordIcon from "../../assets/images/ic_baseline-email (2).svg";
 import { useNavigate } from "react-router-dom";
@@ -13,9 +13,6 @@ export const Login = () => {
 
   return (
     <div>
-      <div style={{ height: "100px" }}>
-        <Header />
-      </div>
       <section id={styles.area}>
         <div id={styles.loginArea}>
           <div id={styles.innerLogin}>
@@ -69,7 +66,6 @@ export const Login = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

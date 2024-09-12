@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Button, Footer, Header } from "../../components";
+import { Button } from "../../components";
 import styles from "./styles.module.css";
 
 export const Register = () => {
@@ -11,9 +11,6 @@ export const Register = () => {
 
   return (
     <div>
-      <div style={{ height: "100px" }}>
-        <Header />
-      </div>
       <section id={styles.area}>
         <div id={styles.formArea}>
           <div id={styles.innerFormArea}>
@@ -62,7 +59,6 @@ export const Register = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };
