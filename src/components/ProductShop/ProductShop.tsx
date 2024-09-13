@@ -16,7 +16,7 @@ export const ProductShop = ({ item }: IProductsProps) => {
         <div className={styles.productName}>
           <p>{item.name}</p>
         </div>
-        <div className="gray">{item.type}</div>
+        <div className={`gray ${styles.productName}`}>{item.type}</div>
         <div className="gray">{item.value}</div>
         <div className="subtitle green bold">{item.promoValue}</div>
         <button>

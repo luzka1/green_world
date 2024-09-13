@@ -31,19 +31,19 @@ export const GlobalStyles = createGlobalStyle<{}>`
     background-color: var(--background-color);  
   }
   p{
-    font-size:18px;
+    font-size: 1rem;
   }
   .landing-page-title{
-    font-size: 48px;
+    font-size: 3rem;
   }
   .title{
-    font-size: 36px;
+    font-size: 2rem;
   }
   .subtitle{
-    font-size: 32px;
+    font-size: 1.5rem;
   }
   .footer-title{
-    font-size: 18px;
+    font-size: 1rem;
     color:white;
   }
   .green{
@@ -65,7 +65,7 @@ export const GlobalStyles = createGlobalStyle<{}>`
     border-radius: 8px;
     border: 2px solid var(--border);
     box-sizing: border-box;
-    font-size:14px;
+    font-size: 0.9rem;
     background-color: var(--input-color);
   }
 
@@ -76,7 +76,7 @@ export const GlobalStyles = createGlobalStyle<{}>`
     border-radius: 8px;
     border: 2px solid var(--border);
     box-sizing: border-box;
-    font-size:14px;
+    font-size: 0.9rem;
     background-color: var(--input-color);
   }
   .principalButton{
@@ -86,7 +86,7 @@ export const GlobalStyles = createGlobalStyle<{}>`
     text-align:center;
     border:none;
     height:50px;
-    font-size: 18px;
+    font-size: 1.1rem;
     cursor:pointer;
   }
 `;
