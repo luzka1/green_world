@@ -69,6 +69,10 @@
         padding: 1rem;
     }
 
+    .itemType {
+        width: 75px;
+    }
+
     .itemType div {
         width: 50px;
         height: 50px;
@@ -86,12 +90,10 @@
     #sectionItems {
         gap: 1rem;
     }
-    
+
 }
 
 @media (max-width: 600px) {
-    
-    
     #promoBanner {
         display: none;
     }

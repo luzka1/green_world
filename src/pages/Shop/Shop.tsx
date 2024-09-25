@@ -48,8 +48,6 @@ export const Shop = () => {
           ))}
         </div>
         <CarouselProducts title="Mais vendidos"/>
-        <CarouselProducts title="Promos legais"/>
-        <CarouselProducts title="Mais vendidos"/>
       </section>
     </>
   );
