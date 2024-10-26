@@ -41,13 +41,17 @@ export const Shop = () => {
           {items.map((data, index) => (
             <div className={styles.itemType} key={index}>
               <div>
-                <img src={data.img} width={50} height={50} alt="fruta" />
+                <img src={data.img} width={50} height={50} alt={data.name} />
               </div>
               <p className="green">{data.name}</p>
             </div>
           ))}
         </div>
-        <CarouselProducts title="Mais vendidos"/>
+        <div style={{width: '90%', display:'flex', flexDirection:'column', gap:"2rem"
+        }}>
+          <CarouselProducts title="Promo diária"/>
+          <CarouselProducts title="Imperdíveis"/>
+        </div>
       </section>
     </>
   );

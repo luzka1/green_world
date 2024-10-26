@@ -18,6 +18,7 @@ export const GlobalStyles = createGlobalStyle<{}>`
   --border: #e3e3e3;
   --input-color: #FAFAFA;
   --input-text-color: #c0c0c0;
+  --border-color: #dadada;
 }
   *{
     margin:0;
@@ -88,5 +89,29 @@ export const GlobalStyles = createGlobalStyle<{}>`
     height:50px;
     font-size: 1.1rem;
     cursor:pointer;
+  }
+
+  .product-individual{
+    background-color: white;
+    max-width: fit-content;
+    border-radius: 5px;
+    border: 1px solid var(--input-text-color);
+  }
+
+  .shop-button {
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 90%;
+    background-color: var(--green);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    height: 50px;
+    text-transform: uppercase;
+    font-size: 20px;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
   }
 `;

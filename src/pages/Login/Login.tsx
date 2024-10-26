@@ -25,13 +25,13 @@ export const Login = () => {
                 <div>
                   <img src={emailIcon} alt="icone de email" />
                 </div>
-                <input className="input-enter-data" placeholder="Email"></input>
+                <input required className="input-enter-data" placeholder="Email" type="email"></input>
               </div>
               <div className={styles.input}>
                 <div>
                   <img src={passwordIcon} alt="icone de email" />
                 </div>
-                <input className="input-enter-data" placeholder="Senha"></input>
+                <input required className="input-enter-data" placeholder="Senha" type="password"></input>
               </div>
               <div id={styles.infosUser}>
                 <div id={styles.remember}>

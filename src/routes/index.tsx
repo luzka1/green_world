@@ -1,12 +1,11 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Login, Register, Shop, Error } from "../pages";
+import { Login, Register, Shop, Error, Search } from "../pages";
 import { Footer, Header } from "../components";
 import { useWindowSize } from "data";
+import DetailProduct from "pages/DetailProduct/DetailProduct";
 
 export const Rotas = () => {
   const location = useLocation();
-
-  const hiddenComponents = location.pathname === "/error";
 
   const { width } = useWindowSize();
 
@@ -20,6 +19,8 @@ export const Rotas = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/detail/:idProduct" element={<DetailProduct />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />

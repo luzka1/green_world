@@ -1,10 +1,10 @@
 import styles from "./styles.module.css";
 import { ProductShop } from "components";
-import { ItemProp } from "interfaces/App.interface";
+import { items } from "data/products";
 import { useRef } from "react";
 
 interface CarouselProps {
-  title: string;
+  title?: string;
 }
 
 export const CarouselProducts = ({ title }: CarouselProps) => {
@@ -22,66 +22,6 @@ export const CarouselProducts = ({ title }: CarouselProps) => {
       }
     }
   };
-
-  const items: ItemProp[] = [
-    {
-      photo: "tomato",
-      name: "Frutas",
-      type: "Frutas",
-      value: "R$ 7,99",
-      promoValue: "R$ 4,99",
-    },
-    {
-      photo: "tomato",
-      name: "Frutas",
-      type: "Frutas",
-      value: "R$ 7,99",
-      promoValue: "R$ 4,99",
-    },
-    {
-      photo: "tomato",
-      name: "Frutas",
-      type: "Frutas",
-      value: "R$ 7,99",
-      promoValue: "R$ 4,99",
-    },
-    {
-      photo: "tomato",
-      name: "Frutas",
-      type: "Frutas",
-      value: "R$ 7,99",
-      promoValue: "R$ 4,99",
-    },
-    {
-      photo: "tomato",
-      name: "Frutas",
-      type: "Frutas",
-      value: "R$ 7,99",
-      promoValue: "R$ 4,99",
-    },
-    {
-      photo: "tomato",
-      name: "Frutas",
-      type: "Frutas",
-      value: "R$ 7,99",
-      promoValue: "R$ 4,99",
-    },
-    {
-      photo: "tomato",
-      name: "Frutas",
-      type: "Frutas",
-      value: "R$ 7,99",
-      promoValue: "R$ 4,99",
-    },
-    {
-      photo: "tomato",
-      name: "Frutas",
-      type: "Frutas",
-      value: "R$ 7,99",
-      promoValue: "R$ 4,99",
-    },
-  
-  ];
 
   return (
     <div className={styles.itemsArea}>
