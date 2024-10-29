@@ -3,6 +3,7 @@ import { Login, Register, Shop, Error, Search } from "../pages";
 import { Footer, Header } from "../components";
 import { useWindowSize } from "data";
 import DetailProduct from "pages/DetailProduct/DetailProduct";
+import PaymentMethods from "pages/PaymentMethods/PaymentMethods";
 
 export const Rotas = () => {
   const location = useLocation();
@@ -21,6 +22,7 @@ export const Rotas = () => {
         <Route path="/shop" element={<Shop />} />
         <Route path="/search" element={<Search />} />
         <Route path="/detail/:idProduct" element={<DetailProduct />} />
+        <Route path="payment-method" element={<PaymentMethods />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
