@@ -8,7 +8,6 @@ interface InfoProductProps {
 }
 
 const ProductInfo = ({ produto }: InfoProductProps) => {
-
   const handleSendToCart = (product: ItemProp) => {
     const existingItems: ItemProp[] = JSON.parse(
       localStorage.getItem("cartItems") || "[]"
@@ -18,7 +17,7 @@ const ProductInfo = ({ produto }: InfoProductProps) => {
 
     localStorage.setItem("cartItems", JSON.stringify(existingItems));
 
-    toast.success("Produto colocado no carrinho com sucesso!")
+    toast.success("Produto colocado no carrinho com sucesso!");
   };
 
   return (
@@ -34,7 +33,9 @@ const ProductInfo = ({ produto }: InfoProductProps) => {
           <p style={{ textDecoration: "line-through" }} className="gray">
             {produto.value}
           </p>
-          <p className="subtitle green bold">{produto.promoValue}</p>
+          <p className="subtitle green bold" style={{ fontSize: "2rem" }}>
+            {produto.promoValue}
+          </p>
           <p className="gray">* Preco por quilo</p>
         </div>
 

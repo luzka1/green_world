@@ -53,6 +53,9 @@ export const GlobalStyles = createGlobalStyle<{}>`
   .blue{
     color: var(--blue);  
   }
+    .red{
+     color: var(--red);  
+    }
     .bold{
     font-weight: bold;
     }
