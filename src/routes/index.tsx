@@ -4,6 +4,7 @@ import { Footer, Header } from "../components";
 import { useWindowSize } from "data";
 import DetailProduct from "pages/DetailProduct/DetailProduct";
 import ShoppingCart from "pages/ShoppingCart/ShoppingCart";
+import PaymentMethods from "pages/PaymentMethods/PaymentMethods";
 
 export const Rotas = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ export const Rotas = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/detail/:idProduct" element={<DetailProduct />} />
         <Route path="/shopping-cart" element={<ShoppingCart />} />
+        <Route path="payment-method" element={<PaymentMethods />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
