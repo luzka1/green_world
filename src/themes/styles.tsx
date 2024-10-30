@@ -99,7 +99,7 @@ export const GlobalStyles = createGlobalStyle<{}>`
   }
 
   .shop-button {
-      display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -113,5 +113,11 @@ export const GlobalStyles = createGlobalStyle<{}>`
     text-transform: uppercase;
     font-size: 20px;
     box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+    transition: 200ms all;
+  }
+
+  .shop-button:hover{
+    transform: scale(105%);
+    cursor:pointer;
   }
 `;

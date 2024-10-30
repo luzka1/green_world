@@ -10,15 +10,14 @@ const DetailProduct = () => {
   const { idProduct } = useParams();
 
   const produto = items.find((item) => item.id === idProduct);
+  
+  useEffect(() => {
+    scrollToTop();
+  },[])
 
   if (!produto) {
     return <h2>Produto não encontrado</h2>;
   }
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  useEffect(() => {
-    scrollToTop();
-  }, []);
 
   return (
     <section className={styles.container}>

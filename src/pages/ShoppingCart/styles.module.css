@@ -1,0 +1,9 @@
+.container{
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.container p {
+    padding-bottom: 2rem;
+}
