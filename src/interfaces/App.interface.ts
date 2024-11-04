@@ -6,7 +6,7 @@ export interface ItemProp {
   name: string;
   type: string;
   value: string;
-  promoValue: string;
+  promoValue: number;
   product_desc: string;
   product_full_desc: string;
   product_composition: string;

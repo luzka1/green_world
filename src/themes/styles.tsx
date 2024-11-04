@@ -92,6 +92,20 @@ export const GlobalStyles = createGlobalStyle<{}>`
     height:50px;
     font-size: 1.1rem;
     cursor:pointer;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 0.25);
+  }
+
+    .secondButton{
+    border-radius: 8px;
+    color:white;
+    background-color:white;
+    text-align:center;
+    border:2px solid var(--blue);
+    height:50px;
+    font-size: 1.1rem;
+    cursor:pointer;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 0.25);
+    color: var(--blue)
   }
 
   .product-individual{
@@ -114,7 +128,7 @@ export const GlobalStyles = createGlobalStyle<{}>`
     border-radius: 5px;
     height: 50px;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 1rem;
     box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
     transition: 200ms all;
   }

@@ -34,7 +34,7 @@ const ProductInfo = ({ produto }: InfoProductProps) => {
             {produto.value}
           </p>
           <p className="subtitle green bold" style={{ fontSize: "2rem" }}>
-            {produto.promoValue}
+            RS$ {produto.promoValue}
           </p>
           <p className="gray">* Preco por quilo</p>
         </div>

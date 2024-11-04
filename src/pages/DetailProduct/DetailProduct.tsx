@@ -6,7 +6,7 @@ import { ProductShop } from "components/ProductShop";
 import { useEffect } from "react";
 import { scrollToTop } from "themes";
 
-const DetailProduct = () => {
+export const DetailProduct = () => {
   const { idProduct } = useParams();
 
   const produto = items.find((item) => item.id === idProduct);
@@ -39,5 +39,3 @@ const DetailProduct = () => {
     </section>
   );
 };
-
-export default DetailProduct;
