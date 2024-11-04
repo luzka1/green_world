@@ -3,6 +3,7 @@ import { Rotas } from "./routes";
 import { ToastContainer } from "react-toastify";
 import { BrowserRouter } from "react-router-dom";
 import { AppProvider } from "./data";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (

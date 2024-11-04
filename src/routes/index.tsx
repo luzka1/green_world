@@ -1,9 +1,18 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Login, Register, Shop, Error, Search } from "../pages";
+import {
+  Login,
+  Register,
+  Shop,
+  Error,
+  Search,
+  DetailProduct,
+  ShoppingCart,
+  PaymentMethods,
+  ConfirmPayment,
+  Pay,
+} from "../pages";
 import { Footer, Header } from "../components";
 import { useWindowSize } from "data";
-import DetailProduct from "pages/DetailProduct/DetailProduct";
-import PaymentMethods from "pages/PaymentMethods/PaymentMethods";
 
 export const Rotas = () => {
   const location = useLocation();
@@ -16,13 +25,15 @@ export const Rotas = () => {
         <Header />
       </div>
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/search" element={<Search />} />
         <Route path="/detail/:idProduct" element={<DetailProduct />} />
-        <Route path="payment-method" element={<PaymentMethods />} />
+        <Route path="/shopping-cart" element={<ShoppingCart />} />
+        <Route path="/payment-method" element={<PaymentMethods />} />
+        <Route path="/confirm-payment" element={<ConfirmPayment />} />
+        <Route path="/pay" element={<Pay />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />

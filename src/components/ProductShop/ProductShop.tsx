@@ -26,7 +26,7 @@ export const ProductShop = ({ item }: IProductsProps) => {
         <div className="subtitle green bold">{item.promoValue}</div>
         <button className="shop-button" type="button" onClick={() => handleClick()}>
           <img src={shoppingCart} alt="icone de carrinho de compras" />
-          <p>Comprar</p>
+          <span>Comprar</span>
         </button>
       </div>
     </div>
