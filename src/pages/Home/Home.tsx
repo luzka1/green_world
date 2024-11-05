@@ -1,8 +1,16 @@
 import styles from "./styles.module.css";
 import logo from "../../assets/images/logo.svg";
 import fruit1 from "../../assets/images/imgs.svg";
+import { useEffect } from "react";
+import { scrollToTop } from "themes";
 
 export const Home = () => {
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
+
   return (
     <div>
       <div id={styles.lpHeader}>

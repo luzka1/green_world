@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components";
 import styles from "./styles.module.css";
+import { useEffect } from "react";
+import { scrollToTop } from "themes";
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -8,6 +10,11 @@ export const Register = () => {
   const handleClick = () => {
     navigate("/shop");
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
 
   return (
     <div>

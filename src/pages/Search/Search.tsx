@@ -1,9 +1,16 @@
 import { items } from "data/products";
 import styles from "./styles.module.css";
 import { ProductShop } from "components/ProductShop";
+import { useEffect } from "react";
+import { scrollToTop } from "themes";
 
 export const Search = () => {
   const searchedProduct = "Maçã";
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
 
   return (
     <section className={styles.shopSection}>

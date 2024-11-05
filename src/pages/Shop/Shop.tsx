@@ -1,6 +1,8 @@
 import styles from "./styles.module.css";
 import banner from "../../assets/images/banner.png";
 import { CarouselProducts } from "../../components";
+import { useEffect } from "react";
+import { scrollToTop } from "themes";
 
 export const Shop = () => {
 
@@ -30,6 +32,11 @@ export const Shop = () => {
       img: require("../../assets/images/Banana_pratapng 1.png"),
     },
   ];
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
 
   return (
     <>

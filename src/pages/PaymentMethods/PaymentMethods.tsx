@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import { Circle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { scrollToTop } from "themes";
 
 export const PaymentMethods = () => {
   const [fill, setFill] = useState<boolean>(false);
@@ -25,6 +26,11 @@ export const PaymentMethods = () => {
       toast.error("Escolha uma forma de pagamento!");
     }
   }
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
 
   return (
     <div className={styles.container}>

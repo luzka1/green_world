@@ -16,3 +16,4 @@ export * from "./DetailProduct";
 export * from "./PaymentMethods";
 export * from "./ConfirmPayment";
 export * from "./Pay";
+export * from "./User";

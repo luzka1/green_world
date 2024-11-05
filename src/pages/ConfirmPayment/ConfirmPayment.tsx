@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import { ItemProp } from "interfaces/App.interface";
 import { useNavigate } from "react-router-dom";
+import { scrollToTop } from "themes";
 
 export const ConfirmPayment = () => {
   const [cartItems, setCartItems] = useState<ItemProp[]>([]);
@@ -20,6 +21,11 @@ export const ConfirmPayment = () => {
   const confirm = () => {
     navigate('/pay');
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
 
   return (
     <div className={styles.container}>

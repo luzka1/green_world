@@ -5,6 +5,7 @@ import { Minus, Plus } from "lucide-react";
 import { items } from "data/products";
 import { ProductShop } from "components/ProductShop";
 import { useNavigate } from "react-router-dom";
+import { scrollToTop } from "themes";
 
 export const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState<ItemProp[]>([]);
@@ -36,6 +37,11 @@ export const ShoppingCart = () => {
     localStorage.setItem("totalAmount", totalAmount.toFixed(2).toString());
     navigate("/payment-method");
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
 
   return (
     <div className={styles.container}>

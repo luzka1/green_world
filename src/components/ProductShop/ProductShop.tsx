@@ -11,7 +11,7 @@ export const ProductShop = ({ item }: IProductsProps) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/detail/${item.id}`);
+    navigate(`/product/${item.id}`);
   };
 
   return (
