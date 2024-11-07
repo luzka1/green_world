@@ -1,4 +1,7 @@
-export interface IAppContext {}
+export interface IAppContext {
+  cartItems: ItemProp[],
+  setCartItems: any,
+}
 
 export interface ItemProp {
   id: string;

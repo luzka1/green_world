@@ -11,6 +11,7 @@ import {
   ConfirmPayment,
   Pay,
   User,
+  UserDetails,
 } from "../pages";
 import { Footer, Header } from "../components";
 import { useWindowSize } from "data";
@@ -36,6 +37,7 @@ export const Rotas = () => {
         <Route path="/confirm-payment" element={<ConfirmPayment />} />
         <Route path="/pay" element={<Pay />} />
         <Route path="/user" element={<User />} />
+        <Route path="/user/details" element={<UserDetails />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />

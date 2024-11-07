@@ -91,6 +91,20 @@
     padding: 20px 30px;
 }
 
+.error{
+    display: flex;
+    height: 40rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--red);
+}
+
+.error svg{
+    width: 50%;
+    height: 5rem;
+}
+
 .totalAmount{
     margin: 1rem 0;
 }
