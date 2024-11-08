@@ -3,8 +3,10 @@ import banner from "../../assets/images/banner.png";
 import { CarouselProducts } from "../../components";
 import { useEffect } from "react";
 import { scrollToTop } from "themes";
+import { useProductsContext } from "hooks/useProductsContext";
 
 export const Shop = () => {
+  const { products, loading, getProducts } = useProductsContext();
 
   const items = [
     {
@@ -34,9 +36,9 @@ export const Shop = () => {
   ];
 
   useEffect(() => {
+    getProducts();
     scrollToTop();
   }, []);
-
 
   return (
     <>
@@ -54,10 +56,16 @@ export const Shop = () => {
             </div>
           ))}
         </div>
-        <div style={{width: '90%', display:'flex', flexDirection:'column', gap:"2rem"
-        }}>
-          <CarouselProducts title="Promo diária"/>
-          <CarouselProducts title="Imperdíveis"/>
+        <div
+          style={{
+            width: "90%",
+            display: "flex",
+            flexDirection: "column",
+            gap: "2rem",
+          }}
+        >
+          <CarouselProducts title="Promo diária" items={products} />
+          <CarouselProducts title="Imperdíveis" items={products} />
         </div>
       </section>
     </>

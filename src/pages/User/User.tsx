@@ -3,37 +3,12 @@ import styles from "./styles.module.css";
 import { useEffect } from "react";
 import { scrollToTop } from "themes";
 import { useNavigate } from "react-router-dom";
-
-const items = [
-  {
-    photo:
-      "https://superprix.vteximg.com.br/arquivos/ids/175974-292-292/Kiwi-Importado--1-unidade-aprox.-100g-.png?v=636410713461700000",
-    name: "Kiwi",
-    qt: "1kg",
-    order: " 39140344 - 17/05/2024",
-    status: "pending",
-  },
-  {
-    photo:
-      "https://superprix.vteximg.com.br/arquivos/ids/175974-292-292/Kiwi-Importado--1-unidade-aprox.-100g-.png?v=636410713461700000",
-    name: "Kiwi",
-    qt: "1kg",
-    order: " 39140344 - 17/05/2024",
-    status: "complete",
-  },
-  {
-    photo:
-      "https://superprix.vteximg.com.br/arquivos/ids/175974-292-292/Kiwi-Importado--1-unidade-aprox.-100g-.png?v=636410713461700000",
-    name: "Kiwi",
-    qt: "1kg",
-    order: " 39140344 - 17/05/2024",
-    status: "error",
-  },
-];
+import { orders } from "data/orders";
+import { useUserContext } from "hooks/useUserContext";
 
 export const User = () => {
-  const fullName = "Lucas Gabriel dos Santos";
-  const email = "lucrades@gmail.com";
+  const { user } = useUserContext();
+
   const navigate = useNavigate();
 
   const checkStatus = (status: string) => {
@@ -53,6 +28,10 @@ export const User = () => {
     return { color, text };
   };
 
+  const handleOrderDetails = (order: string) => {
+    navigate(`/order/${order}`);
+  };
+
   useEffect(() => {
     scrollToTop();
   }, []);
@@ -65,36 +44,44 @@ export const User = () => {
             <CircleUser className="gray" />
           </div>
           <div className={styles.infos}>
-            <h2 className="bold green">Bem vindo(a), {fullName}</h2>
-            <span>{email}</span>
+            <h2 className="bold green">Bem vindo(a), {user?.nomeCompleto}</h2>
+            <span>{user?.email}</span>
           </div>
         </div>
-        <div className={styles.edit} onClick={() => navigate('/user/details')}>
+        <div className={styles.edit} onClick={() => navigate("/user/details")}>
           <Edit2 fill="var(--green)" className="green" />
           <span className="gray">Editar Perfil</span>
         </div>
       </div>
       <h2 className="green">SEUS PEDIDOS</h2>
       <div className={styles.orders}>
-        {items.map((item, index) => {
+        {orders.map((item, index) => {
           const { color, text } = checkStatus(item.status);
+
           return (
             <>
               <div key={index} className={styles.item}>
-                <div className={styles.productInfo}>
-                  <img src={item.photo} alt={item.photo} />
-                  <div>
-                    <p className="bold">{item.name}</p>
-                    <span className="bold">Quantidade: </span>
-                    {item.qt}
+                {item.items?.[0] && (
+                  <div className={styles.productInfo}>
+                    <img src={item.items[0].photo} alt={item.items[0].photo} />
+                    <div>
+                      <p className="bold">{item.items[0].name}</p>
+                      <span className="bold">Quantidade: </span>
+                      {item.items[0].qt}
+                    </div>
                   </div>
-                </div>
+                )}
                 <div className={styles.productInfo}>
                   <span className="gray bold">Pedido:</span>
-                  {item.order}
+                  {item.order} - {item.orderDate}
                 </div>
                 <div className={styles.productInfo}>
-                  <button className="secondButton bold">Ver detalhes</button>
+                  <button
+                    className="secondButton bold"
+                    onClick={() => handleOrderDetails(item.order)}
+                  >
+                    Ver detalhes
+                  </button>
                 </div>
               </div>
               <div

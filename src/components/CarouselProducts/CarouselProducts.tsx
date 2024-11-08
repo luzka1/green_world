@@ -1,13 +1,14 @@
 import styles from "./styles.module.css";
 import { ProductShop } from "components";
-import { items } from "data/products";
+import { ItemProp } from "interfaces/App.interface";
 import { useRef } from "react";
 
 interface CarouselProps {
   title?: string;
+  items: ItemProp[];
 }
 
-export const CarouselProducts = ({ title }: CarouselProps) => {
+export const CarouselProducts = ({ title, items }: CarouselProps) => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
 
   const scrollCarousel = (direction: "left" | "right") => {
@@ -21,7 +22,7 @@ export const CarouselProducts = ({ title }: CarouselProps) => {
         carousel.scrollLeft += scrollAmount;
       }
     }
-  };
+  }
 
   return (
     <div className={styles.itemsArea}>

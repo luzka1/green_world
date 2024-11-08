@@ -1,0 +1,131 @@
+.container {
+    padding: 2rem;
+    display: flex;
+    margin: 0 auto;
+    width: 95%;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.content{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 30rem;
+}
+
+.order, .details{
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    height: 100%;
+    padding: 2rem;
+}
+
+.order{
+    flex-basis: 60%;
+    color: var(--gray02);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.order .title{
+    padding: 0 0 1rem 0;
+}
+
+.product{
+    background-color: white;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+}
+
+.productInfo{
+    display: flex;
+    align-items: center; 
+    gap: 1rem;
+}
+
+.productInfo p{
+    font-size: 1.2rem;
+}
+
+.productInfo img{
+    width: 150px;
+    height: 150px;
+}
+
+.productInfo button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+}
+
+.productsList{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-height: 10rem;
+    overflow-y: auto;
+}
+
+.order .btns{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.btns button{
+    width: 100%;
+    font-weight: bold;
+}
+
+.details{
+    flex-basis: 40%;
+}
+
+.details button {
+    width: 100%;
+}
+
+.detailsTitle{
+    display: flex;
+    flex-direction: column;
+    color: var(--gray02);
+}
+
+.method{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin: 1rem 0 1rem 0;
+    padding: 1rem 0 1rem 0;
+}
+
+.prices div{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media(max-width:1024px){
+    .content{
+       flex-direction: column;
+    }
+}
