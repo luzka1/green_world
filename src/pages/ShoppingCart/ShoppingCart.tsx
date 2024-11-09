@@ -77,7 +77,7 @@ export const ShoppingCart = () => {
               </div>
             ))
           ) : (
-            <div className={styles.error}>
+            <div className="error">
               <CircleAlert className="red" /> <p>Nenhum produto no carrinho!</p>
             </div>
           )}

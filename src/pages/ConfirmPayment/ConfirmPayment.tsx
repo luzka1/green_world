@@ -3,29 +3,63 @@ import styles from "./styles.module.css";
 import { ItemProp } from "interfaces/App.interface";
 import { useNavigate } from "react-router-dom";
 import { scrollToTop } from "themes";
+import { api } from "api/api";
+import { toast } from "react-toastify";
+import { useAppContext } from "hooks/useAppContext";
+
+const token = localStorage.getItem("token");
 
 export const ConfirmPayment = () => {
-  const [cartItems, setCartItems] = useState<ItemProp[]>([]);
+  const [items, setCartItems] = useState<ItemProp[]>([]);
   const [totalAmount, setTotalAmount] = useState<string | null>("");
+  const [method, setMethod] = useState<string | null>("");
+  const [orderData, setOrderData] = useState<any>();
+  const [loading, setLoading] = useState<boolean>();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const cartItems: ItemProp[] = JSON.parse(
-      localStorage.getItem("cartItems") ?? "[]"
-    );
-    setCartItems(cartItems);
+    const storedData = JSON.parse(localStorage.getItem("cartItems") ?? "{}");
 
+    const filteredCartItems = (storedData || []).map((item: ItemProp) => ({
+      name: item.name,
+      promoValue: item.promoValue,
+      photo: item.photo,
+      quantity: "1",
+    }));
+
+    setCartItems(filteredCartItems);
     setTotalAmount(localStorage.getItem("totalAmount"));
+    setMethod(localStorage.getItem("method"));
   }, []);
 
-  const confirm = () => {
-    navigate('/pay');
+  const saveDataToLocalStorage = () => {
+    const orderData = {
+      items,
+      totalAmount,
+      method,
+    };
+
+    setOrderData(orderData);
   };
 
   useEffect(() => {
     scrollToTop();
-  }, []);
+    saveDataToLocalStorage();
+  }, [totalAmount, method, items]);
 
+  const confirm = async () => {
+    setLoading(true);
+    try {
+      await api.post(`orders/${token}/add-Items`, orderData);
+      toast.success("Pedido realizado com sucesso!");
+      localStorage.removeItem("cartItems");
+      navigate('/pay')
+    } catch (error: any) {
+      console.log(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -88,7 +122,7 @@ export const ConfirmPayment = () => {
         <div className={styles.list}>
           <h3 className="bold green">Lista de produtos</h3>
           <div className={styles.items}>
-            {cartItems.map((item, index) => (
+            {items.map((item, index) => (
               <div key={index} className={styles.cartItem}>
                 <div className={styles.innerCardItem}>
                   <div className={styles.cardPhoto}>

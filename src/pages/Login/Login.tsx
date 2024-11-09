@@ -34,7 +34,7 @@ export const Login = () => {
       localStorage.setItem("token", response.data.userId);
       getUserData(response.data.userId);
       toast.success("Login efetuado com sucesso!");
-      navigate("/");
+      navigate("/shop");
     } catch (error: any) {
       toast.error(error.response.data.message);
     } finally {

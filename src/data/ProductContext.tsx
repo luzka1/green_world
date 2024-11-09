@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { IProductContext, ItemProp } from "../interfaces/App.interface";
 import { api } from "api/api";
+import { toast } from "react-toastify";
 
 const ProductContext = createContext<IProductContext>({} as IProductContext);
 
@@ -14,7 +15,7 @@ export function ProductProvider(props: any) {
       const response = await api.get("/products");
       setProducts(response.data);
     } catch (error) {
-      throw new Error("Erro ao resgatar dados!");
+      toast.error("Erro ao resgatar dados!");
     } finally {
       setLoading(false);
     }

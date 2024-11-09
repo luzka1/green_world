@@ -4,9 +4,11 @@ import { CarouselProducts } from "../../components";
 import { useEffect } from "react";
 import { scrollToTop } from "themes";
 import { useProductsContext } from "hooks/useProductsContext";
+import { useNavigate } from "react-router-dom";
 
 export const Shop = () => {
   const { products, loading, getProducts } = useProductsContext();
+  const navigate = useNavigate();
 
   const items = [
     {
@@ -39,6 +41,10 @@ export const Shop = () => {
     getProducts();
     scrollToTop();
   }, []);
+
+  if (products.length < 1) {
+    navigate("/login");
+  }
 
   return (
     <>

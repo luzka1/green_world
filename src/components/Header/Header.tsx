@@ -9,10 +9,11 @@ import { useNavigate } from "react-router-dom";
 import { useWindowSize } from "data";
 import { useRef } from "react";
 import { useAppContext } from "hooks/useAppContext";
+import { useUserContext } from "hooks/useUserContext";
 
 export const Header = () => {
   const { cartItems } = useAppContext();
-  let isUserLogged: boolean = true;
+  const { isLogged } = useUserContext();
   const navigate = useNavigate();
   const { width } = useWindowSize();
   const headerRef = useRef<HTMLElement>(null);
@@ -40,13 +41,13 @@ export const Header = () => {
             &#9776;
           </button>
         </div>
-        {isUserLogged ? (
+        {isLogged ? (
           <input placeholder="pesquise aqui..."></input>
         ) : (
           <div />
         )}
         <div>
-          {!isUserLogged ? (
+          {!isLogged ? (
             <>
               <div onClick={() => handleClick("/register")}> Cadastrar </div>
               <div
@@ -69,7 +70,7 @@ export const Header = () => {
             <img src={notification} alt="icone de notificacao" />
             <p>Notificações</p>
           </div>
-          {isUserLogged ? (
+          {isLogged ? (
             <div onClick={() => handleClick("/user")}>
               <img src={user} alt="icone de usuario" />
               <p>Meu perfil</p>

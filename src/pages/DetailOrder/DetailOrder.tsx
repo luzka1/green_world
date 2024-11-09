@@ -1,4 +1,3 @@
-import { orders } from "data/orders";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { scrollToTop } from "themes/animation";
@@ -6,11 +5,13 @@ import styles from "./styles.module.css";
 import { toast } from "react-toastify";
 import { CreditCard } from "lucide-react";
 import { Pix } from "themes/Pix";
+import { useUserContext } from "hooks/useUserContext";
 
 export const DetailOrder = () => {
   const { idOrder } = useParams();
+  const { orders } = useUserContext();
 
-  const order = orders.find((item) => item.order === idOrder);
+  const order = orders.find((item: any) => item.order_number === idOrder);
 
   useEffect(() => {
     scrollToTop();
@@ -28,17 +29,17 @@ export const DetailOrder = () => {
         <div className={styles.order}>
           <div className={styles.title}>
             <span className="bold gray">Pedido: </span>
-            {order.order} - {order.orderDate}
+            {order.order_number} - {order.orderDate}
           </div>
           <div className={styles.product}>
             <div className={styles.productsList}>
-              {order.items?.map((item, index) => (
+              {order.items?.map((item : any, index : number) => (
                 <div key={index} className={styles.productInfo}>
-                  <img src={item.photo} alt={item.photo} />
+                  <img src={item.photoUrl} alt={item.name} />
                   <div>
                     <p className="bold">{item.name}</p>
                     <span className="bold">Quantidade: </span>
-                    {item.qt}
+                    {item.quantity}
                   </div>
                 </div>
               ))}
@@ -104,11 +105,11 @@ export const DetailOrder = () => {
           </div>
 
           <button
-              className="principalButton bold"
-              onClick={() => toast.error("Recurso indisponível no momento")}
-            >
-              Avaliar produto
-            </button>
+            className="principalButton bold"
+            onClick={() => toast.error("Recurso indisponível no momento")}
+          >
+            Avaliar produto
+          </button>
         </div>
       </div>
     </div>

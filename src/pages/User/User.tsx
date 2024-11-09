@@ -1,13 +1,13 @@
-import { CircleUser, Edit2 } from "lucide-react";
+import { CircleAlert, CircleUser, Edit2 } from "lucide-react";
 import styles from "./styles.module.css";
 import { useEffect } from "react";
 import { scrollToTop } from "themes";
 import { useNavigate } from "react-router-dom";
-import { orders } from "data/orders";
 import { useUserContext } from "hooks/useUserContext";
 
 export const User = () => {
-  const { user } = useUserContext();
+  const { user, orders, getOrderData } = useUserContext();
+  const token = localStorage.getItem("token");
 
   const navigate = useNavigate();
 
@@ -33,8 +33,11 @@ export const User = () => {
   };
 
   useEffect(() => {
+    getOrderData(token);
     scrollToTop();
   }, []);
+
+  console.log(orders);
 
   return (
     <div className={styles.container}>
@@ -55,47 +58,56 @@ export const User = () => {
       </div>
       <h2 className="green">SEUS PEDIDOS</h2>
       <div className={styles.orders}>
-        {orders.map((item, index) => {
-          const { color, text } = checkStatus(item.status);
+        {orders ? (
+          orders?.map((item: any, index: number) => {
+            const { color, text } = checkStatus(item.status);
 
-          return (
-            <>
-              <div key={index} className={styles.item}>
-                {item.items?.[0] && (
-                  <div className={styles.productInfo}>
-                    <img src={item.items[0].photo} alt={item.items[0].photo} />
-                    <div>
-                      <p className="bold">{item.items[0].name}</p>
-                      <span className="bold">Quantidade: </span>
-                      {item.items[0].qt}
+            return (
+              <>
+                <div key={index} className={styles.item}>
+                  {item.items?.[0] && (
+                    <div className={styles.productInfo}>
+                      <img
+                        src={item.items[0].photoUrl}
+                        alt={item.items[0].photo}
+                      />
+                      <div>
+                        <p className="bold">{item.items[0].item_name}</p>
+                        <span className="bold">Quantidade: </span>
+                        {item.items[0].quantity} Kg
+                      </div>
                     </div>
+                  )}
+                  <div className={styles.productInfo}>
+                    <span className="gray bold">Pedido:</span>
+                    {item.order_number} - {item.order_date}
                   </div>
-                )}
-                <div className={styles.productInfo}>
-                  <span className="gray bold">Pedido:</span>
-                  {item.order} - {item.orderDate}
+                  <div className={styles.productInfo}>
+                    <button
+                      className="secondButton bold"
+                      onClick={() => handleOrderDetails(item.order_number)}
+                    >
+                      Ver detalhes
+                    </button>
+                  </div>
                 </div>
-                <div className={styles.productInfo}>
-                  <button
-                    className="secondButton bold"
-                    onClick={() => handleOrderDetails(item.order)}
-                  >
-                    Ver detalhes
-                  </button>
+                <div
+                  style={{
+                    border: `2px solid ${color}`,
+                    color: `${color}`,
+                  }}
+                  className={`${styles.status} bold`}
+                >
+                  {text}
                 </div>
-              </div>
-              <div
-                style={{
-                  border: `2px solid ${color}`,
-                  color: `${color}`,
-                }}
-                className={`${styles.status} bold`}
-              >
-                {text}
-              </div>
-            </>
-          );
-        })}
+              </>
+            );
+          })
+        ) : (
+          <div className="error">
+              <CircleAlert className="red" /> <p>Nenhum produto no carrinho!</p>
+          </div>
+        )}
       </div>
     </div>
   );

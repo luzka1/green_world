@@ -41,7 +41,6 @@ export const Rotas = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/" element={<Shop />} />
         <Route path="/search" element={<Search />} />
         <Route path="/product/:idProduct" element={<DetailProduct />} />
         <Route path="/shopping-cart" element={<ShoppingCart />} />
