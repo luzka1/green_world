@@ -5,14 +5,17 @@ import ProductInfo from "components/ProductInfo/ProductInfo";
 import { ProductShop } from "components/ProductShop";
 import { useEffect } from "react";
 import { scrollToTop } from "themes";
+import { useProductsContext } from "hooks/useProductsContext";
 
 export const DetailProduct = () => {
   const { idProduct } = useParams();
+  const { products, getProducts } = useProductsContext();
 
-  const produto = items.find((item) => item.id === idProduct);
+  const produto = products.find((item) => item.id === idProduct);
   
   useEffect(() => {
     scrollToTop();
+    getProducts();
   },[])
 
   if (!produto) {
@@ -26,7 +29,7 @@ export const DetailProduct = () => {
         <h1 className="bold green">Produtos relacionados</h1>
 
         <div className={styles.related}>
-          {items.slice(0, 4).map((item, id) => (
+          {products.slice(0, 4).map((item, id) => (
             <div
               className={`product-individual ${styles.relatedUnique}`}
               key={id}

@@ -2,12 +2,15 @@ import styles from "../../pages/DetailProduct/styles.module.css";
 import { ItemProp } from "interfaces/App.interface";
 import shoppingCart from "../../assets/images/material-symbols_shopping-cart.png";
 import { toast } from "react-toastify";
+import { useAppContext } from "hooks/useAppContext";
 
 interface InfoProductProps {
   produto: ItemProp;
 }
 
 const ProductInfo = ({ produto }: InfoProductProps) => {
+  const { setCartItems } = useAppContext();
+
   const handleSendToCart = (product: ItemProp) => {
     const existingItems: ItemProp[] = JSON.parse(
       localStorage.getItem("cartItems") || "[]"
@@ -16,6 +19,8 @@ const ProductInfo = ({ produto }: InfoProductProps) => {
     existingItems.push(product);
 
     localStorage.setItem("cartItems", JSON.stringify(existingItems));
+
+    setCartItems((prevData: any) => [...prevData, produto]);
 
     toast.success("Produto colocado no carrinho com sucesso!");
   };

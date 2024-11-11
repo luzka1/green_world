@@ -1,4 +1,15 @@
-export interface IAppContext {}
+export interface IProductContext {
+  products : ItemProp[],
+  setProducts : any,
+  loading: boolean,
+  getProducts: () => void,
+}
+
+
+export interface IAppContext {
+  cartItems: ItemProp[],
+  setCartItems: any,
+}
 
 export interface ItemProp {
   id: string;

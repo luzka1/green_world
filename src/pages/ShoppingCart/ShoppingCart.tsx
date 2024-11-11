@@ -1,13 +1,15 @@
 import { ItemProp } from "interfaces/App.interface";
 import styles from "./styles.module.css";
-import { useEffect, useState } from "react";
-import { Minus, Plus } from "lucide-react";
+import { useEffect } from "react";
+import { CircleAlert, Minus, Plus } from "lucide-react";
 import { items } from "data/products";
 import { ProductShop } from "components/ProductShop";
 import { useNavigate } from "react-router-dom";
+import { scrollToTop } from "themes";
+import { useAppContext } from "hooks/useAppContext";
 
 export const ShoppingCart = () => {
-  const [cartItems, setCartItems] = useState<ItemProp[]>([]);
+  const { cartItems, setCartItems } = useAppContext();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,7 +17,7 @@ export const ShoppingCart = () => {
       localStorage.getItem("cartItems") ?? "[]"
     );
     setCartItems(cartItems);
-  }, []);
+  },[]);
 
   const handleRemoveItem = (item: number) => {
     const updatedCartItems = cartItems.filter(
@@ -36,6 +38,10 @@ export const ShoppingCart = () => {
     localStorage.setItem("totalAmount", totalAmount.toFixed(2).toString());
     navigate("/payment-method");
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -71,7 +77,9 @@ export const ShoppingCart = () => {
               </div>
             ))
           ) : (
-            <p>Nenhum produto no carrinho!</p>
+            <div className="error">
+              <CircleAlert className="red" /> <p>Nenhum produto no carrinho!</p>
+            </div>
           )}
         </div>
 

@@ -8,9 +8,12 @@ import close from "../../assets/images/close.svg";
 import { useNavigate } from "react-router-dom";
 import { useWindowSize } from "data";
 import { useRef } from "react";
+import { useAppContext } from "hooks/useAppContext";
+import { useUserContext } from "hooks/useUserContext";
 
 export const Header = () => {
-  let isUserLogged: boolean = true;
+  const { cartItems } = useAppContext();
+  const { isLogged } = useUserContext();
   const navigate = useNavigate();
   const { width } = useWindowSize();
   const headerRef = useRef<HTMLElement>(null);
@@ -29,48 +32,54 @@ export const Header = () => {
     <header ref={headerRef}>
       <div className={styles.innerHeader}>
         <div className={styles.priDiv}>
-          <img src={width > 1024 ? logo : mobileLogo} alt="logo"/>
+          <img
+            src={width > 1024 ? logo : mobileLogo}
+            alt="logo"
+            onClick={() => handleClick("/shop")}
+          />
           <button className={styles.btnHeader} onClick={showHeader}>
             &#9776;
           </button>
         </div>
-        {isUserLogged ? (
+        {isLogged ? (
           <input placeholder="pesquise aqui..."></input>
         ) : (
           <div />
         )}
         <div>
-          {!isUserLogged ? (
+          {!isLogged ? (
             <>
               <div onClick={() => handleClick("/register")}> Cadastrar </div>
               <div
                 onClick={() => handleClick("/login")}
                 className={styles.btnLogin}
               >
-                {" "}
-                Login{" "}
+                Login
               </div>
             </>
           ) : null}
-          <div>
+          <div
+            className={styles.shoppingCart}
+            onClick={() => handleClick("/shopping-cart")}
+          >
             <img src={shoppingCart} alt="icone de carrinho de compras" />
             <p>Carrinho</p>
+            {cartItems.length > 0 && <div>{cartItems.length}</div>}
           </div>
           <div>
             <img src={notification} alt="icone de notificacao" />
             <p>Notificações</p>
           </div>
-          {isUserLogged ? (
-            <div>
+          {isLogged ? (
+            <div onClick={() => handleClick("/user")}>
               <img src={user} alt="icone de usuario" />
               <p>Meu perfil</p>
             </div>
           ) : null}
           <button className={styles.btnHeaderClose} onClick={showHeader}>
-          <img src={close} alt="close button" />
-        </button>
+            <img src={close} alt="close button" />
+          </button>
         </div>
-        
       </div>
     </header>
   );

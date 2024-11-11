@@ -23,7 +23,7 @@ export const GlobalStyles = createGlobalStyle<{}>`
   *{
     margin:0;
     padding:0;
-    border:0,
+    border:0;
     box-sizing: border-box;
     list-style:none;
     font-family: 'Poppins', sans-serif;
@@ -137,4 +137,20 @@ export const GlobalStyles = createGlobalStyle<{}>`
     transform: scale(105%);
     cursor:pointer;
   }
+
+  .error{
+    display: flex;
+    height: 40rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--red);
+    width:100%
+}
+
+.error svg{
+    width: 10rem;
+    height: 5rem;
+}
+
 `;
