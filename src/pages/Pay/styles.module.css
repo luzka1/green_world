@@ -97,3 +97,18 @@
 .orderNumber span{
   font-size: 1.5rem;
 }
+
+ 
+@media(max-width:1024px){
+  .container{
+    padding: 0.5rem;
+  }
+
+  .content{
+    flex-direction: column;
+  }
+
+  .infosPayment{
+    flex-direction: column;
+  }
+}

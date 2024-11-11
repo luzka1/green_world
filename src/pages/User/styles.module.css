@@ -104,3 +104,21 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+ 
+@media(max-width:1024px){
+    .profile{
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      height: auto;
+    }
+
+    .item{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+  }

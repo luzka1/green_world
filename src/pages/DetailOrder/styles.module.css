@@ -129,4 +129,22 @@
     .content{
        flex-direction: column;
     }
+    .product{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        width: 100%;
+    }
+    .productsList{
+        width: 100%;
+        max-height: max-content;
+
+    }
+
+    .productInfo img{
+        width: 75px;
+        height: 75px;
+    }
 }

@@ -132,3 +132,14 @@
  .btns button{
    width: 70%;
  }
+
+ 
+@media(max-width:1024px){
+  .confirm{
+    display: flex;
+    flex-direction: column;
+  }
+  .container{
+    padding: 0.5rem;
+  }
+}
