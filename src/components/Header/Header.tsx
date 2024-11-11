@@ -35,7 +35,7 @@ export const Header = () => {
           <img
             src={width > 1024 ? logo : mobileLogo}
             alt="logo"
-            onClick={() => handleClick("/shop")}
+            onClick={() => handleClick("/")}
           />
           <button className={styles.btnHeader} onClick={showHeader}>
             &#9776;

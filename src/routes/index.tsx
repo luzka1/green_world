@@ -40,10 +40,10 @@ export const Rotas = () => {
       <Routes>
         <Route
           path="/login"
-          element={isLogged ? <Navigate to="/shop" replace /> : <Login />}
+          element={isLogged ? <Navigate to="/" replace /> : <Login />}
         />
         <Route path="/register" element={<Register />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route path="/" element={<Shop />} />
         <Route path="/search" element={<Search />} />
         <Route path="/product/:idProduct" element={<DetailProduct />} />
         <Route path="/shopping-cart" element={<ShoppingCart />} />
