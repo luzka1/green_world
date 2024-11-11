@@ -29,6 +29,11 @@ export function UserProvider(props: any) {
       toast.error(error.response.data.message);
     }
   };
+
+  const logout = () =>{
+    localStorage.removeItem("token");
+    window.location.reload();
+  }
   
   return (
     <UserContext.Provider
@@ -39,7 +44,8 @@ export function UserProvider(props: any) {
         isLogged,
         orders,
         setOrders,
-        getOrderData
+        getOrderData,
+        logout
       }}
     >
       {props.children}

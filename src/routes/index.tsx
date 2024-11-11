@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import {
   Login,
   Register,
@@ -38,7 +38,10 @@ export const Rotas = () => {
         <Header />
       </div>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={isLogged ? <Navigate to="/shop" replace /> : <Login />}
+        />
         <Route path="/register" element={<Register />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/search" element={<Search />} />
@@ -51,7 +54,7 @@ export const Rotas = () => {
             <Route path="/pay" element={<Pay />} />
             <Route path="/user" element={<User />} />
             <Route path="/user/details" element={<UserDetails />} />
-            <Route path="/order/:idOrder" element={<DetailOrder />} />{" "}
+            <Route path="/order/:idOrder" element={<DetailOrder />} />
           </>
         )}
         <Route path="*" element={<Error />} />

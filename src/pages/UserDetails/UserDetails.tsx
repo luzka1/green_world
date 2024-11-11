@@ -1,8 +1,11 @@
 import { toast } from "react-toastify";
 import styles from "./styles.module.css";
+import { useUserContext } from "hooks/useUserContext";
 
 export const UserDetails = () => {
   const data = new Date();
+
+  const { user } = useUserContext();
 
   return (
     <div className={styles.container}>
@@ -19,39 +22,20 @@ export const UserDetails = () => {
                 type="text"
                 readOnly
                 disabled
-                placeholder="Lucas Gabriel dos Santos"
-              />
-            </div>
-            <div className={styles.input}>
-              <label>Celular:</label>
-              <input
-                type="text"
-                readOnly
-                disabled
-                placeholder="(11)97519-3251"
+                placeholder={user?.nomeCompleto}
               />
             </div>
             <div className={styles.input}>
               <label>E-mail:</label>
-              <input
-                type="text"
-                readOnly
-                disabled
-                placeholder="exemplo@exemplo.com"
-              />
+              <input type="text" readOnly disabled placeholder={user?.email} />
             </div>
             <div className={styles.input}>
               <label>CPF</label>
-              <input
-                type="text"
-                readOnly
-                disabled
-                placeholder="849.152.513-18"
-              />
+              <input type="text" readOnly disabled placeholder={user?.cpf} />
             </div>
             <div className={styles.input}>
               <label>Data de nascimento</label>
-              <input type="text" readOnly disabled placeholder="15/01/2003" />
+              <input type="text" readOnly disabled placeholder={user?.dataNascimento} />
             </div>
             <div className={styles.btns}>
               <button

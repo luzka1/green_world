@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserContext } from "hooks/useUserContext";
 
 export const User = () => {
-  const { user, orders, getOrderData } = useUserContext();
+  const { user, orders, getOrderData, logout } = useUserContext();
   const token = localStorage.getItem("token");
 
   const navigate = useNavigate();
@@ -37,8 +37,6 @@ export const User = () => {
     scrollToTop();
   }, []);
 
-  console.log(orders);
-
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
@@ -55,6 +53,7 @@ export const User = () => {
           <Edit2 fill="var(--green)" className="green" />
           <span className="gray">Editar Perfil</span>
         </div>
+        <div className="red bold" onClick={() => logout()}>Sair da conta</div>
       </div>
       <h2 className="green">SEUS PEDIDOS</h2>
       <div className={styles.orders}>
