@@ -5,17 +5,17 @@ import { useNavigate } from "react-router-dom";
 import { scrollToTop } from "themes";
 import { api } from "api/api";
 import { toast } from "react-toastify";
-import { useAppContext } from "hooks/useAppContext";
-
-const token = localStorage.getItem("token");
+import { useUserContext } from "hooks/useUserContext";
 
 export const ConfirmPayment = () => {
+  const token = localStorage.getItem("token");
   const [items, setCartItems] = useState<ItemProp[]>([]);
   const [totalAmount, setTotalAmount] = useState<string | null>("");
   const [method, setMethod] = useState<string | null>("");
   const [orderData, setOrderData] = useState<any>();
   const [loading, setLoading] = useState<boolean>();
   const navigate = useNavigate();
+  const { user } = useUserContext();
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("cartItems") ?? "{}");
@@ -53,7 +53,7 @@ export const ConfirmPayment = () => {
       await api.post(`orders/${token}/add-Items`, orderData);
       toast.success("Pedido realizado com sucesso!");
       localStorage.removeItem("cartItems");
-      navigate('/pay')
+      navigate("/pay");
     } catch (error: any) {
       console.log(error.message);
     } finally {
@@ -83,10 +83,10 @@ export const ConfirmPayment = () => {
             </div>
             <div className={styles.userDetails}>
               <div style={{ width: "50%" }}>
-                <p className="bold">Lucas</p>
+                <p className="bold">{user?.nomeCompleto}</p>
                 <div>
                   <span className="bold">CPF/CNPJ: </span>
-                  <span>123312123</span>
+                  <span>{user?.cpf}</span>
                 </div>
                 <div>
                   <span className="bold">Celular: </span>
@@ -94,7 +94,7 @@ export const ConfirmPayment = () => {
                 </div>
                 <div>
                   <span className="bold">E-mail: </span>
-                  <span>exemplo@exemplo.com</span>
+                  <span>{user?.email}</span>
                 </div>
               </div>
               <div style={{ width: "50%" }}>

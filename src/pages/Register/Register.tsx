@@ -47,7 +47,8 @@ export const Register = () => {
       } else {
         toast.success("Ocorreu um erro ao cadastrar. Tente novamente.");
       }
-    } catch (error) {
+    } catch (error : any) {
+      toast.error(error.response.data.message);
       console.error("Erro ao registrar usuário:", error);
     }
   };
